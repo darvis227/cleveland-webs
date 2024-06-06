@@ -1,0 +1,566 @@
+body {
+  padding-top: 90px;
+  margin: 0;
+  font-family: "Roboto";
+}
+* {
+  list-style: none;
+  text-decoration: none;
+}
+
+.top-bar.expanded {
+  height: 100px;
+  line-height: 100px;
+  font-size: 24px;
+}
+
+.top-bar.shrunk {
+  height: 70px;
+  line-height: 50px;
+  font-size: 18px;
+}
+
+#side_bar {
+  position: fixed;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  top: 0;
+  background-color: #000;
+  transition: all 0.5s;
+  z-index: 999;
+}
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  display: none;
+  transition: all 0.5s ease-in-out;
+}
+
+#side_bar.active {
+  left: 0px;
+}
+
+#side_bar header {
+  font-size: 25px;
+  color: white;
+  text-align: center;
+  line-height: 70px;
+  background-color: #ffdb58;
+  user-select: none;
+  z-index: 1;
+}
+#side_bar ul a {
+  display: block;
+  border-radius: 2px;
+  height: 100%;
+  width: 100%;
+  line-height: 65px;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: white;
+  padding: left 40px;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid black;
+  transition: 0.4s;
+}
+
+ul li:hover a {
+  padding-left: 50px;
+  background-color: #ffdb58;
+}
+#side_bar ul a i {
+  margin-right: 16px;
+}
+#check {
+  display: none;
+}
+label #btn,
+label #cancel {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ffdb58;
+  border-radius: 4px;
+}
+label #btn {
+  left: 40px;
+  top: 25px;
+  position: fixed;
+  font-size: 35px;
+  color: white;
+  padding: 4px 8px;
+  transition: all 0.5s;
+  z-index: 1;
+  transition: all 0.8s ease;
+}
+.top-bar.expanded label #btn {
+  font-size: 35px;
+}
+.top-bar.shrunk label #btn {
+  font-size: 25px;
+}
+label #cancel {
+  left: -195px;
+  top: 17px;
+  font-size: 30px;
+  color: white;
+  padding: 4px 9px;
+  background-color: #ffd359;
+  transition: all 0.5s ease;
+  z-index: 1002;
+}
+.top-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+#check:checked ~ #side_bar {
+  left: 0;
+}
+#check:checked ~ body {
+  pointer-events: none;
+}
+
+#check:checked ~ label #btn {
+  left: -250px;
+  opacity: 0;
+  pointer-events: none;
+}
+#check:checked ~ #overlay {
+  display: block;
+}
+
+#check:checked ~ label #cancel {
+  left: 195px;
+  transform: rotate(90deg);
+  transition: all 0.7s;
+}
+#check:checked ~ label #cancel:hover {
+  transform: rotate(180deg);
+}
+
+.top-bar.expanded .topIcon {
+  width: 100px;
+}
+.top-bar.shrunk .topIcon {
+  width: 80px;
+}
+.topIcon {
+  width: 80px;
+  height: auto;
+  position: fixed;
+  transition: all 0.3s ease;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  transition: all 0.8s ease;
+}
+.wlcm {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 20px;
+  font-family: "roboto";
+}
+.delivery,
+.transport,
+.afterschool,
+.finance,
+.shopping {
+  width: 300px;
+  height: 200px;
+  margin: 10px;
+  border-radius: 10%;
+  display: block;
+  margin: auto;
+  box-shadow: 1px 2px 8px black;
+  transition: 0.5s;
+}
+.delivery:hover,
+.transport:hover,
+.afterschool:hover,
+.finance:hover,
+.shopping:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.ttle {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: roboto;
+  text-align: center;
+}
+.ttle:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.explain {
+  font-size: 25px;
+  font-family: serif;
+  text-align: center;
+}
+.getStrt {
+  padding: 20px;
+  color: white;
+  background-color: black;
+  border: none;
+  border-radius: 2px;
+  font-family: roboto;
+  display: block;
+  margin: auto;
+  box-shadow: 1px 2px 3px black;
+  transition: 0.5s;
+}
+.getStrt:hover {
+  cursor: pointer;
+  background-color: rgb(22, 22, 22);
+  transition: 0.5s;
+  transform: scale(1.1);
+}
+
+.navblow {
+  background-color: #808080 !important;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  width: 100%;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.ctact,
+.abtus {
+  padding: 20px;
+  border-radius: 8px;
+  border: none;
+  background-color: white;
+  font-size: 18px;
+  font-family: roboto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+.abtus:hover,
+.ctact:hover {
+  background-color: rgb(193, 193, 193);
+  transition: 0.2s;
+  box-shadow: 1px 2px 3px rgb(94, 94, 94);
+  transform: scale(1.1);
+}
+
+.getin,
+.qst {
+  color: white;
+  font-family: roboto;
+  text-align: center;
+  padding-top: 10px;
+}
+body {
+  padding-top: 90px;
+  margin: 0;
+  font-family: "Roboto";
+}
+* {
+  list-style: none;
+  text-decoration: none;
+}
+
+.top-bar.expanded {
+  height: 100px;
+  line-height: 100px;
+  font-size: 24px;
+}
+
+.top-bar.shrunk {
+  height: 70px;
+  line-height: 50px;
+  font-size: 18px;
+}
+
+#side_bar {
+  position: fixed;
+  left: -250px;
+  width: 220px;
+  height: 100%;
+  top: 0;
+  background-color: #a9a9a9;
+  transition: all 0.5s;
+  z-index: 999;
+}
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  display: none;
+  transition: all 0.5s ease;
+}
+#side_bar.active {
+  left: 0px;
+}
+
+#side_bar header {
+  font-size: 35px;
+  color: black;
+  text-align: center;
+  line-height: 70px;
+  background-color: #ffdb58;
+  user-select: none;
+  z-index: 1;
+}
+#side_bar ul a {
+  display: block;
+  border-radius: 2px;
+  height: 100%;
+  width: 100%;
+  line-height: 65px;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: #ffff;
+  padding: left 40px;
+  box-sizing: border-box;
+  border-top: 1px solid white;
+  border-bottom: 1px solid black;
+  transition: 0.4s;
+}
+
+ul li:hover a {
+  padding-left: 50px;
+  background-color: #ffdb58;
+}
+#side_bar ul a i {
+  margin-right: 16px;
+}
+#check {
+  display: none;
+}
+label #btn,
+label #cancel {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ffdb58;
+  border-radius: 4px;
+}
+label #btn {
+  left: 40px;
+  top: 25px;
+  position: fixed;
+  font-size: 35px;
+  color: white;
+  padding: 4px 8px;
+  transition: all 0.5s;
+  z-index: 1;
+  transition: all 0.8s ease;
+}
+.top-bar.expanded label #btn {
+  font-size: 35px;
+}
+.top-bar.shrunk label #btn {
+  font-size: 25px;
+}
+label #cancel {
+  left: -195px;
+  top: 17px;
+  font-size: 30px;
+  color: white;
+  padding: 4px 9px;
+  background-color: #ffd359;
+  transition: all 0.5s ease;
+  z-index: 1002;
+}
+.top-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+#check:checked ~ #side_bar {
+  left: 0;
+}
+#check:checked ~ body {
+  pointer-events: none;
+}
+
+#check:checked ~ label #btn {
+  left: -250px;
+  opacity: 0;
+  pointer-events: none;
+}
+#check:checked ~ #overlay {
+  display: block;
+}
+
+#check:checked ~ label #cancel {
+  left: 195px;
+  transform: rotate(90deg);
+  transition: all 0.7s;
+}
+#check:checked ~ label #cancel:hover {
+  transform: rotate(180deg);
+}
+
+.top-bar.expanded .topIcon {
+  width: 100px;
+}
+.top-bar.shrunk .topIcon {
+  width: 80px;
+}
+.topIcon {
+  width: 80px;
+  height: auto;
+  position: fixed;
+  transition: all 0.3s ease;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  transition: all 0.8s ease;
+}
+.wlcm {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 20px;
+  font-family: "roboto";
+}
+.delivery,
+.transport,
+.afterschool,
+.finance,
+.shopping {
+  width: 300px;
+  height: 200px;
+  margin: 10px;
+  border-radius: 10%;
+  display: block;
+  margin: auto;
+  box-shadow: 1px 2px 8px black;
+  transition: 0.5s;
+}
+.delivery:hover,
+.transport:hover,
+.afterschool:hover,
+.finance:hover,
+.shopping:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.ttle {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: roboto;
+  text-align: center;
+}
+.ttle:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.explain {
+  font-size: 25px;
+  font-family: serif;
+  text-align: center;
+}
+.getStrt {
+  padding: 20px;
+  color: white;
+  background-color: black;
+  border: none;
+  border-radius: 2px;
+  font-family: roboto;
+  display: block;
+  margin: auto;
+  box-shadow: 1px 2px 3px black;
+  transition: 0.5s;
+}
+.getStrt:hover {
+  cursor: pointer;
+  background-color: rgb(22, 22, 22);
+  transition: 0.5s;
+  transform: scale(1.1);
+}
+
+.navblow {
+  background-color: black;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  width: 100%;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.ctact,
+.abtus {
+  padding: 20px;
+  border-radius: 8px;
+  border: none;
+  background-color: white;
+  font-size: 18px;
+  font-family: roboto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+.abtus:hover,
+.ctact:hover {
+  background-color: rgb(193, 193, 193);
+  transition: 0.4 s;
+  box-shadow: 1px 2px 3px rgb(94, 94, 94);
+  transform: scale(1.1);
+}
+
+.getin,
+.qst {
+  color: white;
+  font-family: roboto;
+  text-align: center;
+  padding: 10px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .container > div {
+    width: 48%;
+    margin-bottom: 2%;
+  }
+}
